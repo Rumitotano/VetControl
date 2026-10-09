@@ -1,0 +1,69 @@
+@startuml VetClinic_UseCase
+left to right direction
+
+actor "Системный администратор" as SysAdmin
+actor "Администратор" as Admin
+actor "Ветеринар" as Vet
+
+rectangle "Ветеринарная клиника" {
+
+    ' --- Системный администратор ---
+    usecase "Авторизация" as UC_LoginSysAdmin
+    usecase "Управление учётными записями" as UC_ManageAccounts
+    usecase "Создание администратора" as UC_CreateAdmin
+    usecase "Создание ветеринара" as UC_CreateVet
+    usecase "Редактирование пользователей" as UC_EditUsers
+
+    ' --- Администратор ---
+    usecase "Авторизация" as UC_LoginAdmin
+    usecase "Управление клиентами" as UC_ManageClients
+    usecase "Управление питомцами" as UC_ManagePets
+    usecase "Запись на приём" as UC_CreateAppointment
+    usecase "Просмотр расписания" as UC_ViewSchedule
+    usecase "Поставка вакцин" as US_AddVac
+    usecase "Просмотр доступных вакцин" as UC_StockVac
+    usecase "Отмена записи на приём" as UC_DeleteAppointment
+    usecase "Поиск питомца" as UC_SearchPets
+
+    ' --- Ветеринар ---
+    usecase "Авторизация" as UC_LoginVet
+    usecase "Просмотр расписания приёмов" as UC_ViewOwnSchedule
+    usecase "Ведение медицинской карты" as UC_ManageMedicalCard
+    usecase "Назначение лечения" as UC_PrescribeTreatment
+    usecase "Управление вакцинациями" as UC_ManageVaccinations
+    usecase "Просмотр истории пациента" as UC_ViewPatientHistory
+}
+
+' --- Связи системного администратора ---
+SysAdmin -- UC_LoginSysAdmin
+UC_LoginSysAdmin -- UC_ManageAccounts
+UC_ManageAccounts -- UC_CreateAdmin
+UC_ManageAccounts -- UC_CreateVet
+UC_ManageAccounts -- UC_EditUsers
+
+' --- Связи администратора ---
+Admin -- UC_LoginAdmin
+UC_LoginAdmin -- UC_ManageClients
+UC_LoginAdmin -- UC_ManagePets
+UC_LoginAdmin -- UC_CreateAppointment
+UC_LoginAdmin -- UC_ViewSchedule
+UC_LoginAdmin -- US_AddVac
+UC_LoginAdmin -- UC_StockVac
+UC_LoginAdmin -- UC_DeleteAppointment
+
+' --- Связи ветеринара ---
+Vet -- UC_LoginVet
+UC_LoginVet -- UC_ViewOwnSchedule
+UC_LoginVet -- UC_ManageMedicalCard
+UC_LoginVet -- UC_PrescribeTreatment
+UC_LoginVet -- UC_ManageVaccinations
+UC_LoginVet -- UC_ViewPatientHistory
+
+' --- Зависимости между вариантами использования ---
+UC_ManagePets ..> UC_ManageClients : <<include>>
+UC_CreateAppointment ..> UC_ManagePets : <<include>>
+UC_PrescribeTreatment ..> UC_ManageMedicalCard : <<include>>
+UC_CreateAdmin ..> UC_ManageAccounts : <<include>>
+UC_CreateVet ..> UC_ManageAccounts : <<include>>
+
+@enduml
