@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="VetControl/VetControl.vcxproj" />
+  <Project Path="VetControl/VetControl.vcxproj" Id="81faa113-cfac-422b-8495-b924ab7a4142" />
 </Solution>
