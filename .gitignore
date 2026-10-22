@@ -362,9 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-C:\Users\Timur\source\repos\VetControl\VetControl
-C:\Users\Timur\source\repos\VetControl\x64
-C:\Users\Timur\source\repos\VetControl\VetControl.vcxproj.filters
-C:\Users\Timur\source\repos\VetControl\VetControl.vcxproj.user
-C:\Users\Timur\source\repos\VetControl\VetControl.vcxproj
-C:\Users\Timur\source\repos\VetControl\VetControl.slnx
+\VetControl\VetControl
