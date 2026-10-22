@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="VetControl.vcxproj" Id="c6c9e3b9-f55e-452a-ab57-4ff1833add7f" />
+</Solution>
